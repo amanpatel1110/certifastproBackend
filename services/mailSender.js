@@ -50,7 +50,7 @@ const mailVerifier = async (payload) => {
                             account on our website, To verify your Email-id 
                             cilck on Button Below</p>
                            
-                            <button style="width:100px;border: none;height: 40px;font-size: 25px;border-radius: 15px;background-color: #D5CAE2;"><a style="font-weight: bolder;text-decoration:none;color: #7650a2;" href=http://localhost:3000/verify?email=${payload.email}&token=${token}>Click</a></button>
+                            <button style="width:100px;border: none;height: 40px;font-size: 25px;border-radius: 15px;background-color: #D5CAE2;"><a style="font-weight: bolder;text-decoration:none;color: #7650a2;" href=https://certifastpro.netlify.app/verify?email=${payload.email}&token=${token}>Click</a></button>
                             <p>If you did not sign up for an account with us, please ignore this email.</p>  
                             <p>Thanks.</p>
                         </body>
