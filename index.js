@@ -38,6 +38,7 @@ app.get('/', (req, res) => {
     const token = req?.cookies['token'];
 
     if (token) {
+        console.log(token);
         try {
             const payload = verifyToken(token);
             if (payload) {
