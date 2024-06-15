@@ -16,7 +16,6 @@ router.post('/signup',[
     body('password').exists().trim().isLength({min:6}).withMessage('Password must be min 6 characters').escape()
 
     ],async (req, res) => {
-        console.log(req.body);
 
     const errs = validationResult(req);
     
