@@ -95,7 +95,7 @@ router.post('/login',
 
     else {
         const token = generateToken(findUser);
-        return res.status(200).cookie('token', token, { httpOnly: false, secure: false }).json({ msg: 'success', token: token });
+        return res.status(200).cookie('token', token, { httpOnly: false, secure: false ,sameSite: 'None'}).json({ msg: 'success', token: token });
     }
 
 });
