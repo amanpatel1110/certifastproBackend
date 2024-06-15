@@ -17,7 +17,7 @@ const certificateRoutes = require('./routes/certificate')
 
 dotenv.config();
 
-const PORT = 8006;
+// const PORT = 8006;
 const app = express();
 
 app.use(cookieParser());
@@ -30,9 +30,9 @@ app.use(cors({
 app.use(express.json());
 app.use(express.static(path.resolve('./public/certi-images')));
 
-mongoose.connect('mongodb://127.0.0.1:27017/CertiGen')
+mongoose.connect(process.env.DATABASE) //'mongodb://127.0.0.1:27017/CertiGen'
     .then(() => console.log('conn success'))
-    .catch(() => console.log('conn fails'));
+    .catch((err) => console.log('conn fails',err));
 
 
 app.get('/', (req, res) => {
@@ -84,7 +84,7 @@ app.post('/sendEmail',body('email').exists().trim().isEmail().withMessage('Email
     console.log(errs);
     
     if(!errs.isEmpty()){
-        return res.json({errors:errs.array()});
+        return res.json({msg:'Invalid email'});
     }
 
     try{
@@ -127,7 +127,7 @@ app.use('/todo', todoRoutes);
 app.use('/user', userRoutes);
 app.use('/certificate', certificateRoutes);
 
-app.listen(PORT || process.env.PORT, () => console.log('Server started'));
+app.listen(process.env.PORT, () => console.log('Server started'));
 
 
 
@@ -359,3 +359,4 @@ app.listen(PORT || process.env.PORT, () => console.log('Server started'));
 //     }
 // });
 
+// mongodb+srv://aman9429578116:Am@n111@@cluster0.y1diaqq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
