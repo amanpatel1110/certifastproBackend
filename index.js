@@ -20,13 +20,12 @@ dotenv.config();
 // const PORT = 8006;
 const app = express();
 
-app.use(cookieParser());
-
 app.use(cors({
     origin: process.env.CORS_FRONTEND,
     credentials: true
 }));
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.static(path.resolve('./public/certi-images')));
 
