@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
     const token = req?.cookies['token'];
 
     if (token) {
-        console.log(token);
+        // console.log(token);
         try {
             const payload = verifyToken(token);
             if (payload) {
@@ -81,7 +81,7 @@ app.post('/sendEmail',body('email').exists().trim().isEmail().withMessage('Email
 
     const errs = validationResult(req);
 
-    console.log(errs);
+    // console.log(errs);
     
     if(!errs.isEmpty()){
         return res.json({msg:'Invalid email'});
