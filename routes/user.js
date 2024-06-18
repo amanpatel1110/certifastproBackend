@@ -101,8 +101,12 @@ router.post('/login',
 });
 
 router.get('/logout', (req, res) => {
-    res.clearCookie('token');
-    console.log(req?.cookies['token']);
+    res.clearCookie('token', {
+        httpOnly: true,
+        secure: true, 
+        sameSite: 'None', 
+    });
+
     return res.json({ msg: 'success' });
 });
 
